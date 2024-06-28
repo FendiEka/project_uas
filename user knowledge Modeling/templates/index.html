@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Knowledge Modeling Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color:green;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .prediction {
+            margin-top: 20px;
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .prediction h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .prediction p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .input-data {
+            margin-top: 20px;
+        }
+        .input-data h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .input-data ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .input-data li {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Knowledge Data</h1>
+    <form action="/" method="post">
+        <label for="STG">STG:</label>
+        <input type="text" id="STG" name="STG" required><br><br>
+        
+        <label for="SCG">SCG:</label>
+        <input type="text" id="SCG" name="SCG" required><br><br>
+        
+        <label for="STR">STR:</label>
+        <input type="text" id="STR" name="STR" required><br><br>
+        
+        <label for="LPR">LPR:</label>
+        <input type="text" id="LPR" name="LPR" required><br><br>
+        
+        <label for="PEG">PEG:</label>
+        <input type="text" id="PEG" name="PEG" required><br><br>
+        
+        <input type="submit" value="Predict">
+    </form>
+    
+    {% if prediction %}
+    <div class="prediction">
+        <h2>Prediction Result</h2>
+        <p>Predicted Class: {{ prediction }}</p>
+        <div class="input-data">
+            <h3>Input Data:</h3>
+            <ul>
+                <li>STG: {{ form_data.STG }}</li>
+                <li>SCG: {{ form_data.SCG }}</li>
+                <li>STR: {{ form_data.STR }}</li>
+                <li>LPR: {{ form_data.LPR }}</li>
+                <li>PEG: {{ form_data.PEG }}</li>
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>

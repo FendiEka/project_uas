@@ -1,0 +1,3 @@
+flask
+sciklit-learn
+pandas
